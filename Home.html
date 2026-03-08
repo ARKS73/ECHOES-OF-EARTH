@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECHOES OF EARTH — Life on Land</title>
+  <meta name="description"
+    content="Join our mission to protect wildlife, restore forests, and promote sustainable agriculture under UN SDG 15 — Life on Land.">
+  <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="modern_theme.css">
+  <style>
+    /* Home page extra sections */
+    .why-section {
+      padding: 80px 5%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .why-item {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 4px solid var(--primary);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .why-item:nth-child(2) {
+      border-bottom-color: #0ea5e9;
+    }
+
+    .why-item:nth-child(3) {
+      border-bottom-color: #7c3aed;
+    }
+
+    .why-item:nth-child(4) {
+      border-bottom-color: #f59e0b;
+    }
+
+    .why-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .why-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .why-item h3 {
+      font-size: 1.2rem !important;
+      margin-bottom: 10px;
+      color: var(--text-heading) !important;
+    }
+
+    .why-item p {
+      font-size: 0.95rem !important;
+      color: var(--text-muted) !important;
+      line-height: 1.7;
+    }
+
+    /* SDG Banner */
+    .sdg-banner {
+      background: linear-gradient(135deg, #14532d 0%, #166534 60%, #0369a1 100%);
+      padding: 80px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sdg-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(74, 222, 128, 0.18), transparent 60%),
+        radial-gradient(ellipse at 70% 50%, rgba(251, 191, 36, 0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    .sdg-banner h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sdg-banner p {
+      color: rgba(255, 255, 255, 0.8) !important;
+      max-width: 640px;
+      margin: 0 auto 40px;
+      font-size: 1.1rem !important;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sdg-goals-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 40px;
+    }
+
+    .sdg-chip {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+      padding: 18px 22px;
+      text-align: center;
+      min-width: 130px;
+      transition: all 0.3s;
+    }
+
+    .sdg-chip:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-6px);
+    }
+
+    .sdg-chip .c-num {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #4ade80;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .sdg-chip .c-label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.75);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    /* Latest Updates */
+    .updates-section {
+      padding: 20px 5% 80px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .updates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .update-card {
+      background: var(--bg-card);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .update-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(22, 163, 74, 0.13);
+    }
+
+    .update-img {
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .update-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+      display: block;
+    }
+
+    .update-card:hover .update-img img {
+      transform: scale(1.07);
+    }
+
+    .update-body {
+      padding: 22px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .update-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .update-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary) !important;
+      background: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .update-date {
+      font-size: 0.82rem;
+      color: var(--text-muted) !important;
+    }
+
+    .update-body h4 {
+      font-size: 1.1rem !important;
+      color: var(--text-heading) !important;
+      margin-bottom: 10px;
+      font-weight: 700 !important;
+      line-height: 1.4;
+    }
+
+    .update-body p {
+      font-size: 0.93rem !important;
+      color: var(--text-muted) !important;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .update-body a.read-btn {
+      margin-top: auto;
+    }
+
+    .cta-strip {
+      background: rgba(34, 197, 94, 0.1);
+      border-top: 3px solid var(--primary);
+      padding: 60px 5%;
+      text-align: center;
+    }
+
+    .cta-strip h2 {
+      font-size: 2rem !important;
+      margin-bottom: 14px;
+      color: #fff !important;
+    }
+
+    .cta-strip p {
+      color: var(--text-body) !important;
+      max-width: 520px;
+      margin: 0 auto 30px;
+    }
+
+    .cta-strip .cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 40px;
+      background: var(--primary-dark) !important;
+      color: #fff !important;
+      font-weight: 700 !important;
+      font-size: 1rem !important;
+      text-decoration: none !important;
+      transition: all 0.3s;
+      border: none !important;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif !important;
+    }
+
+    .btn-dark:hover {
+      background: #ffffff !important;
+      transform: translateY(-3px);
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="modern-nav">
+    <a href="Home.html" class="nav-brand">
+      <img src="images/logo1.png" alt="Echoes of Earth" onerror="this.src='images/logo.png'">
+      ECHOES OF EARTH
+    </a>
+    <div class="nav-links">
+      <a href="Home.html" class="active">Home</a>
+      <a href="Team.html">Team</a>
+      <a href="profile.html">Profile</a>
+      <a href="Feedback.html">Feedback</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="Sitemap.html">Sitemap</a>
+      <a href="table.html">Table</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content scroll-reveal">
+      <div class="hero-badge">🌍 &nbsp; UN SDG 15 — Life on Land</div>
+      <h1>Preserving<br><span>Life on Land</span></h1>
+      <p>Join our global mission to protect wildlife, fight desertification, restore forests, and build sustainable
+        agriculture for generations to come.</p>
+      <div class="hero-buttons">
+        <a href="#explore" class="btn-primary">🌿 Explore Initiatives</a>
+        <a href="volunteer.html" class="btn-outline">💚 Get Involved</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats Strip -->
+  <div class="stats-strip">
+    <div class="stat-item"><strong>15+</strong><span>Projects Active</span></div>
+    <div class="stat-item"><strong>5,000+</strong><span>Trees Planted</span></div>
+    <div class="stat-item"><strong>80+</strong><span>Species Cataloged</span></div>
+    <div class="stat-item"><strong>300+</strong><span>Farmers Trained</span></div>
+    <div class="stat-item"><strong>12</strong><span>Zones Protected</span></div>
+  </div>
+
+  <!-- Focus Areas -->
+  <main id="explore">
+    <h2 class="section-title scroll-reveal" data-label="Our Work">Our Focus Areas</h2>
+    <div class="cards-grid">
+      <div class="modern-card scroll-reveal delay-1">
+        <div class="card-img-wrapper">
+          <img src="images/wildlife.png" alt="Wildlife Conservation" onerror="this.src='images/about.jpg'">
+        </div>
+        <div class="card-content">
+          <span class="card-tag">🐆 Wildlife</span>
+          <h3>Wildlife Protection</h3>
+          <p>Safeguarding endangered species and restoring natural habitats to maintain the planet's ecological balance
+            and biodiversity.</p>
+          <a href="content_ST1.html" class="read-btn">Explore Wildlife</a>
+        </div>
+      </div>
+      <div class="modern-card scroll-reveal delay-2">
+        <div class="card-img-wrapper">
+          <img src="images/Sustainable Agriculture.jpeg" alt="Sustainable Agriculture"
+            onerror="this.src='images/photo.jpeg'">
+        </div>
+        <div class="card-content">
+          <span class="card-tag">🌾 Agriculture</span>
+          <h3>Sustainable Agriculture</h3>
+          <p>Promoting farming techniques that protect our soil, preserve water resources, and minimize the use of
+            harmful chemicals.</p>
+          <a href="Content_ST2.html" class="read-btn">Explore Farming</a>
+        </div>
+      </div>
+      <div class="modern-card scroll-reveal delay-3">
+        <div class="card-img-wrapper">
+          <img src="images/BIODIVERSITY.png" alt="Biodiversity" onerror="this.src='images/biodivercity.jpg'">
+        </div>
+        <div class="card-content">
+          <span class="card-tag">🦋 Biodiversity</span>
+          <h3>Biodiversity Preservation</h3>
+          <p>Cataloging and protecting diverse ecosystems across land, freshwater, and coastal habitats for a thriving
+            planet.</p>
+          <a href="Content_ST3.html" class="read-btn">Explore Biodiversity</a>
+        </div>
+      </div>
+      <div class="modern-card scroll-reveal delay-4">
+        <div class="card-img-wrapper">
+          <img src="images/desert.jpg" alt="Halt Desertification" onerror="this.src='images/photo.jpeg'">
+        </div>
+        <div class="card-content">
+          <span class="card-tag">🏜️ Desertification</span>
+          <h3>Halt Desertification</h3>
+          <p>Working to restore degraded drylands, prevent soil erosion, and bring green life back to our planet's most
+            fragile landscapes.</p>
+          <a href="content_ST4.html" class="read-btn">Explore Drylands</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why It Matters -->
+    <div class="why-section">
+      <h2 class="section-title scroll-reveal" data-label="The Mission">Why It Matters</h2>
+      <div class="why-grid">
+        <div class="why-item scroll-reveal delay-1">
+          <span class="why-icon">🌏</span>
+          <h3>Ecosystem Balance</h3>
+          <p>Over 1 million species face extinction. Healthy ecosystems underpin food, water and air for all life on
+            Earth.</p>
+        </div>
+        <div class="why-item scroll-reveal delay-2">
+          <span class="why-icon">💧</span>
+          <h3>Water Security</h3>
+          <p>Forests act as natural water reservoirs. Protecting them guarantees clean water for 2.4 billion people
+            worldwide.</p>
+        </div>
+        <div class="why-item scroll-reveal delay-3">
+          <span class="why-icon">🌡️</span>
+          <h3>Climate Stability</h3>
+          <p>Land ecosystems absorb 30% of global CO₂ emissions. Healthy land is our most powerful climate solution.</p>
+        </div>
+        <div class="why-item scroll-reveal delay-4">
+          <span class="why-icon">🤝</span>
+          <h3>Human Livelihoods</h3>
+          <p>Over 1.6 billion people depend on forests for food, shelter and income — making biodiversity a human rights
+            issue.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SDG Banner -->
+  <section class="sdg-banner">
+    <h2 class="scroll-reveal">Aligned with the UN Global Goals</h2>
+    <p class="scroll-reveal delay-1">Our work directly contributes to multiple Sustainable Development Goals, creating
+      ripple effects across ecosystems and communities.</p>
+    <div class="sdg-goals-row scroll-reveal delay-2">
+      <div class="sdg-chip"><span class="c-num">15</span><span class="c-label">Life on Land</span></div>
+      <div class="sdg-chip"><span class="c-num">13</span><span class="c-label">Climate Action</span></div>
+      <div class="sdg-chip"><span class="c-num">6</span><span class="c-label">Clean Water</span></div>
+      <div class="sdg-chip"><span class="c-num">2</span><span class="c-label">Zero Hunger</span></div>
+    </div>
+    <div class="scroll-reveal delay-3">
+      <a href="table.html" class="btn-outline" style="margin-right:14px;">View Data Table</a>
+      <a href="Sitemap.html" class="btn-primary">Explore All Pages</a>
+    </div>
+  </section>
+
+  <!-- Latest Updates -->
+  <section class="updates-section">
+    <h2 class="section-title scroll-reveal" data-label="News & Updates">Latest From The Field</h2>
+    <div class="updates-grid">
+      <div class="update-card scroll-reveal delay-1">
+        <div class="update-img"><img src="images/wildlife.png" alt="Leopard Watch"
+            onerror="this.src='images/about.jpg'"></div>
+        <div class="update-body">
+          <div class="update-meta">
+            <span class="update-tag">Wildlife</span>
+            <span class="update-date">March 2026</span>
+          </div>
+          <h4>Leopard Watch Project Expands to 3 New Zones</h4>
+          <p>Working with WWF Sri Lanka, we've extended camera trap networks to cover critical leopard corridors in the
+            dry zone.</p>
+          <a href="content_ST1.html" class="read-btn">Read More</a>
+        </div>
+      </div>
+      <div class="update-card scroll-reveal delay-2">
+        <div class="update-img"><img src="images/desert.jpg" alt="Green Belt" onerror="this.src='images/photo.jpeg'">
+        </div>
+        <div class="update-body">
+          <div class="update-meta">
+            <span class="update-tag" style="background:rgba(217,119,6,0.2); color:#fbbf24;">Drylands</span>
+            <span class="update-date">February 2026</span>
+          </div>
+          <h4>Green Belt Initiative Plants 5,000 Native Trees</h4>
+          <p>Our reforestation volunteers planted 5,000 native trees across degraded dryland zones, partnering with
+            UNEP's Green Belt initiative.</p>
+          <a href="content_ST4.html" class="read-btn">Read More</a>
+        </div>
+      </div>
+      <div class="update-card scroll-reveal delay-3">
+        <div class="update-img"><img src="images/Sustainable Agriculture.jpeg" alt="Smart Farm"
+            onerror="this.src='images/photo.jpeg'"></div>
+        <div class="update-body">
+          <div class="update-meta">
+            <span class="update-tag" style="background:rgba(168,85,247,0.2); color:#d8b4fe;">Agriculture</span>
+            <span class="update-date">January 2026</span>
+          </div>
+          <h4>Smart Farming Toolkit Reaches 300 Farmers</h4>
+          <p>The Smart Farming Agri-toolkit developed with FAO guidance has now trained over 300 smallholder farmers in
+            crop rotation and soil health management.</p>
+          <a href="Content_ST2.html" class="read-btn">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <div class="cta-strip">
+    <h2 class="scroll-reveal">Ready to Make a Difference?</h2>
+    <p class="scroll-reveal delay-1">Join thousands of volunteers and advocates protecting life on land — every action
+      counts toward a greener future.</p>
+    <div class="cta-btns scroll-reveal delay-2">
+      <a href="volunteer.html" class="btn-primary">🌿 Volunteer Now</a>
+      <a href="Feedback.html" class="btn-dark">✉️ Share Feedback</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="modern-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>ECHOES OF EARTH</h2>
+        <p>Dedicated to the United Nations Sustainable Development Goal 15: Life on Land. Together we can restore
+          harmony to our ecosystems and leave a thriving planet for all species.</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-group">
+          <h3>Quick Links</h3>
+          <a href="Home.html">Home</a>
+          <a href="Team.html">Team Page</a>
+          <a href="profile.html">Profile</a>
+          <a href="Sitemap.html">Sitemap</a>
+          <a href="table.html">Table</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="link-group">
+          <h3>Editor Pages</h3>
+          <a href="pageEditor_ST1.html">ST1 — Wildlife</a>
+          <a href="pageEditor_ST2.html">ST2 — Agriculture</a>
+          <a href="pageEditor_ST3.html">ST3 — Biodiversity</a>
+          <a href="pageEditor_ST4.html">ST4 — Desert</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Echoes of Earth. All Rights Reserved. &nbsp;·&nbsp; Built for UN SDG 15 🌿</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
