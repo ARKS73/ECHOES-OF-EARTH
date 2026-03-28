@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<link rel="stylesheet" href="styleE.css">
+
+    <link rel="stylesheet" href="modern_theme.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Auto-apply wrapper classes to sections
+            document.querySelectorAll('section').forEach((el, index) => {
+                el.classList.add('modern-panel', 'scroll-reveal', 'delay-' + ((index % 4) + 1));
+                observer.observe(el);
+            });
+            
+            // Fix layout dynamically
+            const mainContainer = document.querySelector('main');
+            if (mainContainer) {
+               mainContainer.style.paddingTop = '120px';
+               mainContainer.style.paddingBottom = '80px';
+               mainContainer.style.backgroundColor = '#f9fbf9';
+            }
+        });
+    </script>
+    <style>
+        .S2C_container, .container_ST4, .container {
+            max-width: 1200px; margin: 0 auto; padding: 20px;
+            display: grid; grid-template-columns: 1fr 300px; gap: 40px;
+        }
+        @media (max-width: 900px) { .S2C_container, .container_ST4, .container { grid-template-columns: 1fr; } }
+        
+        /* Sidebars / Aside */
+        aside, .aside_ST4 {
+            background: white !important; border-radius: 20px; padding: 30px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: sticky; top: 100px; height: fit-content;
+        }
+        aside h3, .aside_ST4 h3 { color: var(--primary-dark) !important; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        aside ol, aside ul, .aside_ST4 ol, .aside_ST4 ul { list-style: none; padding: 0; }
+        aside li, .aside_ST4 li { margin-bottom: 15px; }
+        aside a, .aside_ST4 a { color: #555 !important; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        aside a:hover, .aside_ST4 a:hover { color: var(--primary) !important; }
+
+        /* Panels */
+        .modern-panel {
+            background: white; border-radius: 20px; padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--primary); margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        .modern-panel:hover { transform: translateY(-5px); }
+        
+        /* Typography */
+        h1, .h1_ST4 { text-align: center; margin-bottom: 40px; color: var(--primary-dark); font-size: 2.5rem; }
+        h2, .h2_ST4 { color: var(--primary-dark) !important; margin-top: 0; font-size: 1.8rem; }
+        h3, .h3_ST4 { color: var(--secondary) !important; margin-top: 20px; font-size: 1.3rem; }
+        p { color: #555 !important; line-height: 1.8; margin-bottom: 15px; font-size: 1.05rem; }
+        
+        /* Images */
+        .img_ST1, .img_ST4, img[alt="pic"] { 
+            width: 100%; max-width: 700px; border-radius: 15px; 
+            margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            display: block; 
+        }
+
+        /* Buttons & Links */
+        .top a, .top_ST4 a { 
+            display: inline-block; padding: 10px 20px; background: var(--primary); 
+            color: white !important; border-radius: 30px; text-decoration: none; font-weight: bold; 
+        }
+        .top a:hover, .top_ST4 a:hover { background: var(--primary-dark); }
+        .page_a { color: var(--primary) !important; font-weight: bold; }
+    </style>
+
+</head>
+<body >
+  
+   
+    <!-- Modern Navigation -->
+    <nav class="modern-nav">
+        <a href="Home.html" class="nav-brand">
+            <img src="images/logo1.png" alt="Echoes of Earth Logo">
+            ECHOES OF EARTH
+        </a>
+        <div class="nav-links">
+            <a href="Home.html">Home</a>
+            <a href="Team.html">Team Page</a>
+            <a href="profile.html">Profile</a>
+            <a href="Feedback.html">Feedback</a>
+            <a href="volunteer.html">Volunteer</a>
+            <a href="Sitemap.html">Sitemap</a>
+            <a href="table.html">Table</a>
+        </div>
+    </nav>
+
+
+ 
+<main>
+
+    <section class="stud">
+         <h2>S.Akaass, Student role : 01</h2>
+    </section>
+
+    <div class="container">
+    
+        <main>
+
+            <section>
+                <h2 id="splash">Splash Page</h2>
+                <h3>Technical Description</h3>
+                    <h4>HTML Techniques</h4> 
+                    <ul>
+                        <li>Used <meta http-equiv="refresh"> for automatic redirection after 5 seconds</li>
+                        <li>Created a centered content container using (div class="main") with absolute positioning</li>
+                        <li>Implemented semantic headings (h1, h3, h4) for clear hierarchy</li>
+                        <li>Added an animated loading indicator with (div class="loader")</li>
+                    </ul>
+                    <h4>CSS Techniques</h4>
+                    <ul>
+                        <li>Full-screen background image with background-size: fill</li>
+                        <li>Centered content using transform: translate(-50%, -50%)</li>
+                        <li>Created visual contrast with semi-transparent overlay (background-color: rgba(0,0,0,0.4))</li>
+                        <li>Added CSS animation (@keyframes spin) for the loading spinner</li>
+                        <li>Implemented hover effects for interactive elements (:hover)</li>
+                    </ul>
+
+                     <h4>Key Properties</h4>
+                        <p>position: absolute, transform, @keyframes, background-size, border-radius</p>
+                    
+                    <h3>Accessibility</h3>
+                        <ul>
+                            <li>High contrast text (white on dark semi-transparent background)</li>
+                            <li>Clear heading structure for screen readers</li>
+                            <li>Added manual navigation option (button) alongside automatic redirect</li>
+                            <li>Semantic HTML structure for better screen reader interpretation</li>
+                        </ul>
+                    
+                    <h3>validation page</h3> 
+                        <a href="validation_ST1.html#Splash" class="page_a">click Here</a>
+
+                    <h3>Splash Screen</h3>
+                        <p><a href="index.html" class="page_a">Click Here</a></p>
+            </section>
+
+            <section>
+                <h2 id="volunteer">Volunteer Page</h2>
+                <h3>Technical Description</h3>
+                    <h4>HTML Techniques</h4> 
+                    <ul>
+                        <li>Card-based layout using div class="card1-review"</li>
+                        <li>Interactive form elements (select, textarea, radio inputs)</li>
+                        <li>Semantic sectioning with (main) and (form)</li>
+                        <li>Hidden radio inputs with visual emoji labels</li>
+                    </ul>
+                    <h4>CSS Techniques</h4>
+                    <ul>
+                        <li>Responsive grid layout (display: grid, grid-template-columns)</li>
+                        <li>Card design with box-shadow and border-radius</li>
+                        <li>Interactive elements with :hover and transform: scale()</li>
+                        <li>Flexible footer layout using flexbox</li>
+                    </ul>
+
+                     <h4>Key Properties</h4>
+                        <p>grid-template-columns, box-shadow, transform, :hover, flexbox</p>
+                    
+                    <h3>Accessibility</h3>
+                        <ul>
+                            <li>Form labels associated with inputs</li>
+                            <li>Hidden radio buttons with visible emoji labels</li>
+                            <li>Sufficient color contrast for readability</li>
+                            <li>Clear visual feedback for interactive elements</li>
+                        </ul>
+                    
+                    <h3>validation page</h3> 
+                        <a href="validation_ST1.html#Volunteer" class="page_a">click Here</a>
+
+                    <h3>Volunteer Page</h3>
+                        <p><a href="volunteer.html" class="page_a">Click Here</a></p>
+            </section>
+
+
+             <section>
+                <h2 id="content">Content Page</h2>
+                <h3>Technical Description</h3>
+                    <h4>HTML Techniques</h4> 
+                    <ul>
+                        <li>Semantic structure with main, aside, and section</li>
+                        <li>Internal page navigation using anchor links (a href="#About")</li>
+                        <li>"Back to top" button with fixed positioning</li>
+                        <li>Proper image embedding with alt text</li>
+                    </ul>
+                    <h4>CSS Techniques</h4>
+                    <ul>
+                        <li>Two-column layout using flexbox</li>
+                        <li>Sticky sidebar with position: sticky</li>
+                        <li>Consistent section styling with borders and padding</li>
+                        <li>Responsive image sizing</li>
+                    </ul>
+
+                     <h4>Key Properties</h4>
+                        <p>position: sticky, flexbox, border, padding, margin</p>
+                    
+                    <h3>Accessibility</h3>
+                        <ul>
+                            <li>Clear navigation structure</li>
+                            <li>Semantic sectioning elements</li>
+                            <li>Alt text for all images</li>
+                            <li>High contrast color scheme</li>
+                            <li>Keyboard-navigable interface</li>
+                        </ul>
+                    
+                    <h3>validation page</h3> 
+                        <a href="validation_ST1.html#content" class="page_a">click Here</a>
+
+                    <h3>Content Page</h3>
+                        <p><a href="content_ST1.html" class="page_a">Click Here</a></p>
+            </section>
+
+
+            <section>
+                <h2 id="challenge"> Challenges and Lessons Learned</h2>
+                  <h3>Form accessibility</h3>
+                        <ul>
+                            <li>Solution: Added proper labels and ARIA attributes.</li>
+                            <li>Lesson: Accessibility should be considered from start.</li>
+                        </ul>
+                 <h3>Initially struggled to implement a CSS-only loading animation</h3>
+                        <ul>
+                            <li>Solution:After researching CSS animations on W3Schools</li>
+                            <li>Lesson: Learned that CSS animations (via @keyframes) are more performant than JavaScript alternatives for simple animations.</li>
+                        </ul>
+            </section>
+
+            <section>
+                <h2 id="compliance"> Compliance</h2>
+                        <ul>
+                            <li>All images are either original or properly licensed</li>
+                            <li>Followed W3C standards for HTML and CSS</li>
+                            <li>Implemented basic accessibility features</li>
+                            <li>Avoided automatic content that could disorient users</li>
+                        </ul>                 
+            </section>
+
+            <section>
+                <h2 id="ref">References</h2>
+                    <ul class="ref">
+                        <li>W3Schools How TO - Cards. Available at: https://www.w3schools.com/howto/howto_css_cards.asp (Accessed: 18 06 2025).</li>
+                        <li>W3Schools How TO - CSS Loader. Available at: https://www.w3schools.com/howto/howto_css_loader.asp (Accessed: 22 06 2025)</i></li>
+                        <li>W3Schools How TO - Blurred Background. Available at: https://www.w3schools.com/howto/howto_css_blurred_background.asp (Accessed:16 06 2025).</i></li>
+                    </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <aside>
+            <h3>Core pages developed:</h3>
+
+    
+            <ul class="top-level-ul">
+                <li>Student 1</li>
+                    <ul> 
+                        <li><a href="#splash" class="page_a">Splash page</a></li>
+                        <li><a href="#volunteer" class="page_a" >Volunteer page</a></li>
+                        <li><a href="#content" class="page_a" >Content page</a></li>
+                    </ul>
+               
+                <li><a href="#challenge" class="page_a">Challenges and Lessons Learned</a></li>
+                <li><a href="#challenge" class="page_a">Challenges and Lessons Learned</a></li>
+                <li><a href="#compliance" class="page_a">Compliance</a></li>
+                <li><a href="#ref" class="page_a">References</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    
+</body>
+</html>
+</main>
+
+       
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>ECHOES OF EARTH</h2>
+                <p>Dedicated to the United Nations Sustainable Development Goal 15: Life on Land. Together we can restore harmony to our ecosystems.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h3>Quick Links</h3>
+                    <a href="Home.html">Home</a>
+                    <a href="Team.html">Team Page</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="Sitemap.html">Sitemap</a>
+                </div>
+                <div class="link-group">
+                    <h3>Get Involved</h3>
+                    <a href="volunteer.html">Volunteer</a>
+                    <a href="Feedback.html">Feedback</a>
+                    <a href="table.html">Table</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                 <div class="link-group">
+                    <h3>Editor Pages</h3>
+                    <a href="pageEditor_ST1.html">Student 1 (Wildlife)</a>
+                    <a href="pageEditor_ST2.html">Student 2 (Agriculture)</a>
+                    <a href="pageEditor_ST3.html">Student 3 (Biodiversity)</a>
+                    <a href="pageEditor_ST4.html">Student 4 (Desert)</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Echoes of Earth. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>
